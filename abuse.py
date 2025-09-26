@@ -204,23 +204,51 @@ rcParams['axes.unicode_minus'] = False
 
 list_1 = pd.read_parquet('광고목록_전처리.parquet')
 
+# ----------------------
+# part 데이터 불러오기
+# ----------------------
 @st.cache_data
 def load_data_part():
-    file_id = "1_GyWUTo82dTNfeZb5JKPW8ieuoG0MNSU"
+    file_id = "1URmbb5E0QyDKbB75gF4KmzQnNlFXa9Wz"
     url = f"https://drive.google.com/uc?id={file_id}"
-    output = "part.parquet"
-    gdown.download(url, output, quiet=False)
-    return pd.read_parquet(output, engine="pyarrow")
+    csv_output = "part.csv"
+    parquet_output = "part.parquet"
 
+    # CSV 다운로드
+    gdown.download(url, csv_output, quiet=False)
+
+    # CSV → Parquet 변환
+    df = pd.read_csv(csv_output)
+    df.to_parquet(parquet_output, engine="pyarrow", index=False)
+
+    # Parquet 불러오기
+    return pd.read_parquet(parquet_output, engine="pyarrow")
+
+
+# ----------------------
+# point 데이터 불러오기
+# ----------------------
 @st.cache_data
 def load_data_point():
-    file_id = "1gcSBM6Cu-21Y6zlGC0qX_h7hqpPxu6H6"
+    file_id = "16OHavyrRhnosOzhNmB1amNAdkyA2E7MK"  # 원본 CSV 파일 ID
     url = f"https://drive.google.com/uc?id={file_id}"
-    output = "point.parquet"
-    gdown.download(url, output, quiet=False)
-    return pd.read_parquet(output, engine="pyarrow")
+    csv_output = "point.csv"
+    parquet_output = "point.parquet"
 
-# 데이터 불러오기
+    # CSV 다운로드
+    gdown.download(url, csv_output, quiet=False)
+
+    # CSV → Parquet 변환
+    df = pd.read_csv(csv_output)
+    df.to_parquet(parquet_output, engine="pyarrow", index=False)
+
+    # Parquet 불러오기
+    return pd.read_parquet(parquet_output, engine="pyarrow")
+
+
+# ----------------------
+# 실제 데이터 불러오기
+# ----------------------
 part = load_data_part()
 point = load_data_point()
 
