@@ -129,9 +129,9 @@ st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
 # 1. 구글 드라이브에서 파일 다운로드
 @st.cache_data
 def download_file():
-    file_id = "1xjSluvDDak-9yxUOC6o5RadV9v8amGDG"   # 구글 드라이브 파일 ID
+    file_id = "17Ko2r5aa-oqcNZyBwn6Hl7_zY0DD-bKG"   # 구글 드라이브 파일 ID
     url = f"https://drive.google.com/uc?id={file_id}"
-    output = "trend_eda_1year(mapping).csv"         # 로컬 저장 이름
+    output = "trend_eda_1year_mapping.csv"         # 로컬 저장 이름
     gdown.download(url, output, quiet=False)
     return output  # 👉 파일 경로 반환
 
@@ -549,3 +549,4 @@ else:
             st.caption(", ".join(zone_media["51–80%"]) or "-")
             st.markdown(f"**81–100%**")
             st.caption(", ".join(zone_media["81–100%"]) or "-")
+
