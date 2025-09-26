@@ -206,7 +206,7 @@ list_1 = pd.read_parquet('광고목록_전처리.parquet')
 
 @st.cache_data
 def load_data_part():
-    file_id = "1uv4zhOgiG1wgGFf158NAGXT3x-f4EYf9"
+    file_id = "1_GyWUTo82dTNfeZb5JKPW8ieuoG0MNSU"
     url = f"https://drive.google.com/uc?id={file_id}"
     output = "part.parquet"
     gdown.download(url, output, quiet=False)
@@ -225,7 +225,7 @@ part = load_data_part()
 point = load_data_point()
 
 # 광고참여 데이터 드라이브 주소
-#https://drive.google.com/file/d/1uv4zhOgiG1wgGFf158NAGXT3x-f4EYf9/view?usp=sharing
+#https://drive.google.com/file/d/1_GyWUTo82dTNfeZb5JKPW8ieuoG0MNSU/view?usp=sharing
 
 # 광고적립 데이터 드라이브 주소
 #https://drive.google.com/file/d/1gcSBM6Cu-21Y6zlGC0qX_h7hqpPxu6H6/view?usp=sharing
