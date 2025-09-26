@@ -6,4 +6,4 @@ seaborn
 plotly
 gdown
 pyarrow
-
+fastparquet
