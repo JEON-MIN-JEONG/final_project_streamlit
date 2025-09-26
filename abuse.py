@@ -206,7 +206,7 @@ list_1 = pd.read_parquet('광고목록_전처리.parquet')
 
 @st.cache_data
 def load_data_part():
-    file_id = "1_GyWUTo82dTNfeZb5JKPW8ieuoG0MNSU"
+    file_id = "1HsR5qstEd9A04yFu1lhz570DVQ3TDN7Q"
     url = f"https://drive.google.com/uc?id={file_id}"
     output = "part.parquet"
     gdown.download(url, output, quiet=False)
@@ -214,7 +214,7 @@ def load_data_part():
 
 @st.cache_data
 def load_data_point():
-    file_id = "1gcSBM6Cu-21Y6zlGC0qX_h7hqpPxu6H6"
+    file_id = "1-sTUaLKCsqT0fPTXFwbp7yxyLnVjfead"
     url = f"https://drive.google.com/uc?id={file_id}"
     output = "point.parquet"
     gdown.download(url, output, quiet=False)
