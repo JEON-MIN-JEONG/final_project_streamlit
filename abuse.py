@@ -199,8 +199,8 @@ st.markdown("""
 # 2번 코드 로직: 데이터 로드/계산 (그대로 유지)
 # ==============================
 
-rc('font', family='AppleGothic') 		
-plt.rcParams['axes.unicode_minus'] = False
+rcParams['font.family'] = 'AppleGothic'
+rcParams['axes.unicode_minus'] = False
 
 list_1 = pd.read_parquet('광고목록_전처리.parquet')
 
